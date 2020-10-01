@@ -26,5 +26,5 @@ jobs:
           command: echo "Hello"
 
       - aws/assume_role:
-          account_id: 
-          role_name:
+          account_id: 123123
+          role_name: asdfasdf
