@@ -1,0 +1,32 @@
+---
+version: 2.1
+orbs:
+  aws: willbengtson/aws-assume-role@dev:alpha
+
+references:
+  docker-images:
+    artifactory: &DEB_SYSTEM_HELPER_DOCKER_IMAGE security-docker-local.artifactory.hashicorp.engineering/debsystem-helper:latest
+
+environment: &ENVIRONMENT
+    AFY_HOST: https://artifactory.hashicorp.engineering/artifactory
+    AFY_APT_REPOSITORY: hashicorp-apt-security-local
+
+workflows:
+    version: 2
+    test:
+        jobs:
+          - test:
+              filters:
+                branches:
+                  only:
+                    - master
+
+
+jobs:
+  test:
+      - run:
+          command: echo "Hello"
+
+      - aws/assume_role:
+          account_id: 
+          role_name:
