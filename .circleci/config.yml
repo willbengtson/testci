@@ -23,14 +23,12 @@ jobs:
       - image: circleci/python:3.6.4
     steps:
       - run:
-          command: echo "Hello there again 2"
+          command: echo "Hello there"
 
       - aws/assume_role:
           account_id: "770495627041"
           role_name: testRole
       - run:
           command: cat ~/.aws/credentials
-      - run:
-          command: echo $BASH_ENV
       - run:
           command: aws sts get-caller-identity
