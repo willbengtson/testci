@@ -23,7 +23,7 @@ jobs:
       - image: circleci/python:3.6.4
     steps:
       - run:
-          command: echo "Hello there 2"
+          command: echo "Hello there 3"
 
       - aws/assume_role:
           account_id: "770495627041"
